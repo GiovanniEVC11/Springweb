@@ -7,11 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import java.util.ArrayList;
-import java.util.Collection;
 
-import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.AUTO;
 
 @Entity
@@ -19,22 +15,17 @@ import static javax.persistence.GenerationType.AUTO;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class User {
+public class Role {
 
     @Id @GeneratedValue(strategy = AUTO)
-
     private Long id;
     private String name;
-    private String username;
-    private String password;
-
-    @ManyToMany(fetch = EAGER)
-    private Collection<Role> roles = new ArrayList<>();
 
     public void setId(Long id) {
         this.id = id;
     }
 
+    @Id
     public Long getId() {
         return id;
     }
